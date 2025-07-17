@@ -1,4 +1,5 @@
-puzzle_input  = "2333133121414131402"
+with open("9pt1.txt") as f:
+    puzzle_input = f.readline()
 convert = ""
 id = 0 
 checksum = 0
@@ -12,7 +13,7 @@ convert = list(convert)
 print("".join(convert))
 i = 0
 j = len(convert) - 1
-while j > i :
+'''while j > i :
     if convert[j] == ".":
         j-=1
     if convert[i] == ".":
@@ -20,7 +21,17 @@ while j > i :
         convert[i] = convert[j]
         convert[j] = temp
         j -=1 
-    i +=1
+    i +=1'''
+while j > i:
+    if convert[i] != ".":
+        i += 1
+    else:
+        if convert[j] != ".":
+            temp = convert[i]
+            convert[i] = convert[j]
+            convert[j] = temp
+        else:
+            j -=1
 for id, file in enumerate(convert):
     if file == ".":
         break
